@@ -10,16 +10,17 @@ import ru.aviasales.template.ui.fragment.AviasalesFragment;
 
 public class MainActivity extends ActionBarActivity {
 
-	private AviasalesFragment aviasalesFragment;
+        private AviasalesFragment aviasalesFragment;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+        protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
 
-		AviasalesSDK.getInstance().init(this);
-		setContentView(R.layout.activity_main);
 
-		init(savedInstanceState);
+		AviasalesSDK.getInstance().init(this); // initialization of AviasalesSDK
+                setContentView(R.layout.activity_main);
+
+                initFragment();
 	}
 
 	private void init(Bundle savedInstanceState) {
@@ -27,23 +28,23 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	private void initFragment() {
-		FragmentManager fm = getSupportFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
 
-		aviasalesFragment = (AviasalesFragment) fm.findFragmentByTag(AviasalesFragment.TAG);
+        aviasalesFragment = (AviasalesFragment) fm.findFragmentByTag(AviasalesFragment.TAG); // finding fragment by tag
 
-		if (aviasalesFragment == null) {
-			aviasalesFragment = (AviasalesFragment) AviasalesFragment.newInstance();
+		if (aviasalesFragment == null) { 
+                aviasalesFragment = (AviasalesFragment) AviasalesFragment.newInstance();
 		}
 
-		FragmentTransaction fragmentTransaction = fm.beginTransaction();
-		fragmentTransaction.replace(R.id.fragment_place, aviasalesFragment, AviasalesFragment.TAG);
-		fragmentTransaction.commit();
+		FragmentTransaction fragmentTransaction = fm.beginTransaction(); // adding fragment to fragment manager
+                fragmentTransaction.replace(R.id.fragment_place, aviasalesFragment, AviasalesFragment.TAG);
+                fragmentTransaction.commit();
 	}
 
 	@Override
-	public void onBackPressed() {
+	 public void onBackPressed() {
 		if (!aviasalesFragment.onBackPressed()) {
-			super.onBackPressed();
+                super.onBackPressed();
 		}
 	}
 
