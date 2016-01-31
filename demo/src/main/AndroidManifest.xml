@@ -20,8 +20,8 @@
             </intent-filter>
         </activity>
         
-		<meta-data android:name="ru.aviasales.marker" android:value="@string/aviasales_marker"/>
-		<meta-data android:name="ru.aviasales.api_token" android:value="@string/aviasales_api_token"/>
+		<meta-data android:name="ru.aviasales.marker" android:value="@string/aviasales_marker"/>93695
+		<meta-data android:name="ru.aviasales.api_token" android:value="@string/aviasales_api_token"/>2ddfa03f3f9a013db3dd7801e9c1bc84
 
     </application>
 
